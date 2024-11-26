@@ -15,7 +15,7 @@ func Authorization(next http.Handler) http.Handler{
 	// r: this is the http.Request which is what quantifies and represents the client's request (headers, body, etc.)
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
 		// Get the 'username' from the request query
-		var username string r.URL.Query().Get("username")
+		var username string = r.URL.Query().Get("username")
 		// Get the token from the request header
 		var token = r.Header.Get("Authorization")
 
@@ -45,6 +45,6 @@ func Authorization(next http.Handler) http.Handler{
 
 		// Calls the next middleware in line OR goes straight back
 		// to the primary function which handles logic for this route
-		next.ServeHttp(w, r)
+		next.ServeHTTP(w, r)
 	})
 }

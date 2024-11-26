@@ -26,7 +26,7 @@ func main(){
 
 	fmt.Println("Starting Coin Balance GO API Server...")
 
-	err := http.ListenAndService("localhost:8000", r)
+	err := http.ListenAndServe("localhost:8000", r)
 	if err != nil{
 		log.Error(err)
 	}

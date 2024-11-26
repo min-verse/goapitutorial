@@ -42,7 +42,7 @@ func writeError(w http.ResponseWriter, message string, code int){
 
 	// Put the Error Struct from above as a JSON response
 	// Initializes the w http.ResponseWriter as a NewEncoder and then encodes the Error Struct
-	json.NewEnconder(w).Encode(resp)
+	json.NewEncoder(w).Encode(resp)
 }
 
 var(
